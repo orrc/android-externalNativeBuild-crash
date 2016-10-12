@@ -1,0 +1,26 @@
+apply plugin: 'com.android.application'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.1'
+    }
+}
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion '24.0.3'
+
+    externalNativeBuild {
+        ndkBuild {
+            path 'Android.mk'
+        }
+    }
+}
+
+afterEvaluate {
+    println "android.ndkDirectory='${android.ndkDirectory}'"
+}
